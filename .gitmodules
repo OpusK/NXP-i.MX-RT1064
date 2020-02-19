@@ -1,0 +1,3 @@
+[submodule "firmware/external_lib/bosdk"]
+	path = firmware/external_lib/bosdk
+	url = https://github.com/OpusK/bosdk.git
