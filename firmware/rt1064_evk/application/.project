@@ -25,4 +25,21 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>com.nxp.mcuxpresso.core.datamodels.sdkNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/lib/CMSIS</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/external_lib/CMSIS</locationURI>
+		</link>
+		<link>
+			<name>src/lib/bosdk</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/external_lib/bosdk</locationURI>
+		</link>
+		<link>
+			<name>src/lib/nxpsdk</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/external_lib/nxpsdk</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
