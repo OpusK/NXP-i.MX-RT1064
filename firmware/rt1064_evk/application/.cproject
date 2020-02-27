@@ -35,6 +35,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/ap}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/bosdk}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/nxpsdk/MIMXRT1064}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/nxpsdk/MIMXRT1064/drivers}&quot;"/>
@@ -90,6 +91,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/ap}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/bosdk}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/nxpsdk/MIMXRT1064}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lib/nxpsdk/MIMXRT1064/drivers}&quot;"/>
@@ -224,7 +226,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpuart_freertos.c|src/lib/CMSIS/DSP|src/lib/CMSIS/Driver|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpspi_freertos.c|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpi2c_freertos.c|src/lib/nxpsdk/MIMXRT1064/mcuxpresso/startup_mimxrt1064.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpi2c_freertos.c|src/lib/CMSIS/Driver|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpspi_freertos.c|src/lib/nxpsdk/MIMXRT1064/mcuxpresso/startup_mimxrt1064.c|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpuart_freertos.c|src/lib/CMSIS/DSP" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -423,7 +425,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpuart_freertos.c|src/lib/CMSIS/DSP|src/lib/CMSIS/Driver|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpspi_freertos.c|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpi2c_freertos.c|src/lib/nxpsdk/MIMXRT1064/mcuxpresso/startup_mimxrt1064.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpi2c_freertos.c|src/lib/CMSIS/Driver|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpspi_freertos.c|src/lib/nxpsdk/MIMXRT1064/mcuxpresso/startup_mimxrt1064.c|src/lib/nxpsdk/MIMXRT1064/drivers/fsl_lpuart_freertos.c|src/lib/CMSIS/DSP" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
