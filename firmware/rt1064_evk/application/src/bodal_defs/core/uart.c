@@ -20,13 +20,7 @@
 #define UART_HW_VCP             1
 #define UART_HW_UART            2
 
-
-
 #define UART_RX_BUF_LENGTH      1024
-
-
-
-
 
 typedef struct
 {
@@ -45,8 +39,6 @@ typedef struct
 
 } uart_t;
 
-
-
 static uart_t uart_tbl[BODAL_UART_MAX_CH];
 
 static void uartStartRx(uint8_t channel);
@@ -54,7 +46,6 @@ static void uartStartRx(uint8_t channel);
 bool uartInit(void)
 {
   uint8_t i;
-
 
   for (i=0; i<BODAL_UART_MAX_CH; i++)
   {
@@ -72,9 +63,7 @@ bosdk_err_t uartOpen(uint8_t channel, uint32_t baud)
   bosdk_err_t ret = BOSDK_ERR_INVAILD_INDEX;
   uart_t *p_uart;
 
-
-  if (channel >= BODAL_UART_MAX_CH)
-  {
+  if (channel >= BODAL_UART_MAX_CH){
     return BOSDK_ERR_INVAILD_INDEX;
   }
 
@@ -120,7 +109,7 @@ bosdk_err_t uartClose(uint8_t channel)
 
 void uartStartRx(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return;
   }
 
@@ -139,7 +128,7 @@ void uartStartRx(uint8_t channel)
 
 uint32_t uartGetBaud(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return 0;
   }
 
@@ -148,7 +137,7 @@ uint32_t uartGetBaud(uint8_t channel)
 
 uint32_t uartAvailable(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return 0;
   }
 
@@ -175,7 +164,7 @@ uint32_t uartAvailable(uint8_t channel)
 
 void uartFlush(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return;
   }
 
@@ -200,12 +189,20 @@ void uartFlush(uint8_t channel)
 
 void uartPutch(uint8_t channel, uint8_t ch)
 {
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
+    return;
+  }
+
   uartWrite(channel, &ch, 1 );
 }
 
 uint8_t uartGetch(uint8_t channel)
 {
   uint8_t ret = 0;
+
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
+    return 0;
+  }
 
   while(1)
   {
@@ -221,7 +218,7 @@ uint8_t uartGetch(uint8_t channel)
 
 int32_t uartWrite(uint8_t channel, uint8_t *p_data, uint32_t length)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return 0;
   }
 
@@ -249,7 +246,7 @@ int32_t uartWrite(uint8_t channel, uint8_t *p_data, uint32_t length)
 
 uint8_t uartRead(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return 0;
   }
 
@@ -274,7 +271,7 @@ uint8_t uartRead(uint8_t channel)
 
 int32_t uartPrintf(uint8_t channel, const char *fmt, ...)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return 0;
   }
 
@@ -295,7 +292,7 @@ int32_t uartPrintf(uint8_t channel, const char *fmt, ...)
 
 void uartRxHandler(uint8_t channel)
 {
-  if (channel >= BODAL_UART_MAX_CH){
+  if (channel >= BODAL_UART_MAX_CH || !uart_tbl[channel].is_open){
     return;
   }
 
@@ -313,7 +310,7 @@ void LPUART1_SERIAL_RX_TX_IRQHANDLER(void)
   uint8_t data;
   uart_t *p_uart = &uart_tbl[0];
 
-  if ((kLPUART_RxDataRegFullFlag)&LPUART_GetStatusFlags(p_uart->handle))
+  if (p_uart->is_open && (kLPUART_RxDataRegFullFlag)&LPUART_GetStatusFlags(p_uart->handle))
   {
     data = LPUART_ReadByte(p_uart->handle);
     qbufferWrite(&p_uart->qbuffer_rx, &data, 1);
