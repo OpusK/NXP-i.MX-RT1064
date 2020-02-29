@@ -41,8 +41,8 @@
 	#define HW_LED_MAX_CH 1
 // #define BOSDK_ENABLE_BODAL_DRIVER_MICROS   0
 #define BOSDK_ENABLE_BODAL_DRIVER_MILLIS   1
-// #define BOSDK_ENABLE_BODAL_DRIVER_SWTIMER  0
-  // #define HW_SWTIMER_MAX_CH 1
+#define BOSDK_ENABLE_BODAL_DRIVER_SWTIMER  1
+  #define HW_SWTIMER_MAX_CH 8
 
 
 /* BOSDK UTIL OPTIONS (Comment out any undefined features) */
