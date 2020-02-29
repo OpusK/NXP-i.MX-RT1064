@@ -62,6 +62,11 @@
                   </pin>
                   <pin peripheral="LPUART1" signal="RX" pin_num="L14" pin_signal="GPIO_AD_B0_13"/>
                   <pin peripheral="LPUART1" signal="TX" pin_num="K14" pin_signal="GPIO_AD_B0_12"/>
+                  <pin peripheral="GPIO5" signal="gpio_io, 00" pin_num="L6" pin_signal="WAKEUP">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
          </functions_list>
