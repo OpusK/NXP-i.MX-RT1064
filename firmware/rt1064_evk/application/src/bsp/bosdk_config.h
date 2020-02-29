@@ -25,8 +25,8 @@
   // #define HW_SPI_MAX_CH 1
 // #define BOSDK_ENABLE_BODAL_CORE_TIMER 0
   // #define HW_TIMER_MAX_CH 1
-// #define BOSDK_ENABLE_BODAL_CORE_UART  0
-  // #define HW_UART_MAX_CH 1
+#define BOSDK_ENABLE_BODAL_CORE_UART  1
+  #define HW_UART_MAX_CH 1
 // #define BOSDK_ENABLE_BODAL_CORE_VCP   0
 
 
@@ -52,7 +52,7 @@
 // #define BOSDK_ENABLE_UTIL_CMDIF     0
 // #define BOSDK_ENABLE_UTIL_CTABLE    0
 // #define BOSDK_ENABLE_UTIL_LOG       0
-// #define BOSDK_ENABLE_UTIL_QBUFFER   0
+#define BOSDK_ENABLE_UTIL_QBUFFER   1
 // #define BOSDK_ENABLE_UTIL_RING      0
 
 
