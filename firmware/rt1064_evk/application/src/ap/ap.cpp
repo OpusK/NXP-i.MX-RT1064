@@ -7,6 +7,9 @@ void apInit(void)
 {
   bsp_init();
 
+  //Software Timer
+  swtimerInit();
+
   //LED
   ledInit();
 
