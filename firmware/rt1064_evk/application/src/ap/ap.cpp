@@ -10,12 +10,16 @@ void apInit(void)
   //Software Timer
   swtimerInit();
 
+  //CMDIF using UART
+  uartInit();
+  cmdifInit();
+  cmdifOpen(0, 115200);
+
   //LED
   ledInit();
 
-  //UART
-  uartInit();
-  uartOpen(0, 115200);
+  //Button
+  buttonInit();
 }
 
 void apMain(void)
@@ -24,10 +28,7 @@ void apMain(void)
 
   while(1)
   {
-    while(uartAvailable(0) > 0)
-    {
-      uartPutch(0, uartGetch(0));
-    }
+    cmdifMain();
 
     if (millis()-pre_time >= 500){
       pre_time = millis();
