@@ -111,12 +111,101 @@ void LPUART1_init(void) {
 }
 
 /***********************************************************************************************************************
+ * USB1 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'USB1'
+- type: 'usb'
+- mode: 'device'
+- custom_name_enabled: 'false'
+- type_id: 'usb_f20ee74266c7aae05b4d32d0517001b5'
+- functional_group: 'BOARD_InitPeripherals'
+- peripheral: 'USB1'
+- config_sets:
+  - deviceSetting:
+    - vendor_id: '0x1FC9'
+    - product_id: '0x0094'
+    - manufacturer_string: 'NXP'
+    - product_string: 'VCOM'
+    - self_powered: 'true'
+    - max_power: '100'
+    - interfaces:
+      - 0:
+        - interface_class: 'kClassCic'
+        - setting_cic:
+          - interface_name: 'CIC VCOM'
+          - implementation: 'kImplementationCicVcom'
+          - subclass: 'kSubclassAcm'
+          - protocol: 'kProtocolNone'
+          - endpoints_settings:
+            - 0:
+              - setting_name: 'Default'
+              - endpoints:
+                - 0:
+                  - direction: 'kIn'
+                  - transfer_type: 'kInterrupt'
+                  - synchronization: 'kNoSynchronization'
+                  - usage: 'kData'
+                  - max_packet_size_fs: 'k16'
+                  - polling_interval_fs: '8'
+                  - max_packet_size_hs: 'k16'
+                  - polling_interval_hs: '7'
+                  - bRefresh: '0'
+                  - bSynchAddress: 'NoSynchronization'
+          - data_interface_count: '1'
+          - quick_selection: 'QS_INTERFACE_CIC_VCOM'
+      - 1:
+        - interface_class: 'kClassDic'
+        - setting_dic:
+          - interface_name: 'DIC VCOM'
+          - implementation: 'kImplementationDicVcom'
+          - subclass: 'kSubclassNone'
+          - protocol: 'kProtocolNone'
+          - endpoints_settings:
+            - 0:
+              - setting_name: 'Default'
+              - endpoints:
+                - 0:
+                  - direction: 'kIn'
+                  - transfer_type: 'kBulk'
+                  - synchronization: 'kNoSynchronization'
+                  - usage: 'kData'
+                  - max_packet_size_fs: 'k64'
+                  - polling_interval_fs: '0'
+                  - max_packet_size_hs: 'k512'
+                  - polling_interval_hs: '0'
+                  - bRefresh: '0'
+                  - bSynchAddress: 'NoSynchronization'
+                - 1:
+                  - direction: 'kOut'
+                  - transfer_type: 'kBulk'
+                  - synchronization: 'kNoSynchronization'
+                  - usage: 'kData'
+                  - max_packet_size_fs: 'k64'
+                  - polling_interval_fs: '0'
+                  - max_packet_size_hs: 'k512'
+                  - polling_interval_hs: '0'
+                  - bRefresh: '0'
+                  - bSynchAddress: 'NoSynchronization'
+          - quick_selection: 'QS_INTERFACE_DIC_VCOM'
+    - quick_selection: 'QS_DEVICE_CDC_VCOM'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+void USB1_init(void) {
+  USB_DeviceApplicationInit();
+}
+
+/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void BOARD_InitPeripherals(void)
 {
   /* Initialize components */
   LPUART1_init();
+  USB1_init();
 }
 
 /***********************************************************************************************************************
